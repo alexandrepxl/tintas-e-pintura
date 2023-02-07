@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:tintasepintura/app/data/hive_manager/register_adapter.dart';
 import 'package:tintasepintura/app/ui/home/home_binding.dart';
+import 'package:tintasepintura/app/ui/initial/initial_binding.dart';
 import 'package:tintasepintura/routes/app_pages.dart';
 import 'package:tintasepintura/routes/app_routes.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
-void main() {
+void main() async{
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
+  Register.adapter();
+
   runApp(const Main());
 }
 
@@ -19,8 +28,14 @@ class _MyHomePageState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: AppRoutes.home,
-      initialBinding: HomeBinding(),
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color.fromRGBO(245,246,252,1.0),
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.initial,
+      initialBinding: InitialBinding(),
       getPages: AppPages.pages,
     );
   }
