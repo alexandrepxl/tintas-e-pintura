@@ -1,45 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tintasepintura/core/values/constants.dart';
 
 class DialogMessageError extends StatelessWidget {
-  const DialogMessageError({Key? key}) : super(key: key);
+  final String error;
+  const DialogMessageError(this.error, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color.fromRGBO(0,0,0,1.0),
+      color: const Color.fromRGBO(0, 0, 0, 0.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
+            width: double.infinity,
+            margin: const EdgeInsets.only(left: 30.0, right: 30.0),
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(255,255,255,1.0), 
-              borderRadius: BorderRadius.circular(16.0)
+              color: const Color.fromRGBO(255, 255, 255, 1.0),
+              borderRadius: BorderRadius.circular(16.0),
             ),
             child: Column(
               children: [
                 Container(
-                  height: 70.0,
+                  height: 45.0,
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0)), 
-                    color: Color.fromRGBO(186,221,255,1.0)
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
+                    ),
+                    color: Color.fromRGBO(221,105,106,1.0),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Image.asset(AppImages.iconCancel, width: 40.0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: InkWell(
+                            onTap: (){
+                              Get.back();
+                            },
+                            child: Image.asset(AppImages.iconCancel, width: 32.0)),
+                      ),
                     ],
                   ),
                 ),
-
-                Text("MENSAGEM DE EROR!", style: GoogleFonts.montserrat(
-                  textStyle: const TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                    color: Color.fromRGBO(78,78,78,1.0)
-                  )
-                ))
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Text(
+                    error,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(78, 78, 78, 1.0),
+                      ),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                )
               ],
             ),
           )

@@ -1,8 +1,11 @@
 import 'dart:ffi';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tintasepintura/app/data/models/measurement.dart';
+import 'package:tintasepintura/app/ui/home/widgets/dialog_message_error.dart';
 import 'package:tintasepintura/core/utils/app_utils.dart';
+import 'package:tintasepintura/core/values/constants.dart';
 
 class HomeViewModel extends GetxController with AppUtils{
 
@@ -28,10 +31,10 @@ class HomeViewModel extends GetxController with AppUtils{
   insertValues(Measurement obj){
     try{
       showPreviewInto.value = false;
-      if(!validateWallSize(obj.wallWidth,obj.wallHeight)){
-        loggerError(message: "Error área da parede");
-        return;
-      }
+      // if(!validateWallSize(obj.wallWidth,obj.wallHeight)){
+      //   showDialogError(AppMessageError.wallSize);
+      //   return;
+      // }
       measurementList.add(obj);
       for(final item in measurementList){
         print("----------------------------");
@@ -49,6 +52,13 @@ class HomeViewModel extends GetxController with AppUtils{
   RxString bindingPaints(String value){
     final data = measurementList.where((e) => e.wall == value).toList();
     return data.isNotEmpty ? data.single.windowQuantity.toString().obs : "".obs;
+  }
+
+
+  showDialogError(String error) async{
+    await showDialog(context: Get.context!, builder: (context) {
+      return DialogMessageError(error);
+    });
   }
 
 

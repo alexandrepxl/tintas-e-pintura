@@ -8,3 +8,8 @@ class AppImages {
   static const String logoAppbar = "assets/images/logo_appbar.png";
   static const String iconCancel = "assets/images/icon_cancel.png";
 }
+
+class AppMessageError{
+  static const String wallSize = "A área da parede não pode ser menor ou igual a 1m² e maior que 50m².";
+  static const String wallSmallerThanTheDoor = "A parede tem que ter no mínimo 30cm a mais que a porta.";
+}

@@ -33,9 +33,10 @@ mixin AppUtils {
   }
 
 
-  bool validateWallSize(double wallWidth, double wallHeight){
+  List<String> validateWallSize(double wallWidth, double wallHeight){
+    List<String> errors = [];
     final result = (wallWidth * wallHeight);
-    return result > 1.0 && result < 50.0;
+    return [];//result > 1.0 && result < 50.0;
   }
 
 
