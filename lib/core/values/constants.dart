@@ -12,4 +12,5 @@ class AppImages {
 class AppMessageError{
   static const String wallSize = "A área da parede não pode ser menor ou igual a 1m² e maior que 50m².";
   static const String wallSmallerThanTheDoor = "A parede tem que ter no mínimo 30cm a mais que a porta.";
+  static const String portalAndWindowsSizeLimit = "As áreas das portas e janelas não podem ultrapassar 50% da área da parede.";
 }

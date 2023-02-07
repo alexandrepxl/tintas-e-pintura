@@ -31,10 +31,11 @@ class HomeViewModel extends GetxController with AppUtils{
   insertValues(Measurement obj){
     try{
       showPreviewInto.value = false;
-      // if(!validateWallSize(obj.wallWidth,obj.wallHeight)){
-      //   showDialogError(AppMessageError.wallSize);
-      //   return;
-      // }
+      final errors = validateWallSize(obj.wallWidth,obj.wallHeight,obj.windowQuantity, obj.doorQuantity);
+      if(errors.isNotEmpty){
+        showDialogError(errors);
+        return;
+      }
       measurementList.add(obj);
       for(final item in measurementList){
         print("----------------------------");
@@ -55,9 +56,9 @@ class HomeViewModel extends GetxController with AppUtils{
   }
 
 
-  showDialogError(String error) async{
+  showDialogError(List<String> errors) async{
     await showDialog(context: Get.context!, builder: (context) {
-      return DialogMessageError(error);
+      return DialogMessageError(errors);
     });
   }
 

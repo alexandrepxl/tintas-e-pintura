@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tintasepintura/core/values/constants.dart';
 
 class DialogMessageError extends StatelessWidget {
-  final String error;
-  const DialogMessageError(this.error, {Key? key}) : super(key: key);
+  final List<String> errors;
+  const DialogMessageError(this.errors, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +48,40 @@ class DialogMessageError extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    error,
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500,
-                        color: Color.fromRGBO(78, 78, 78, 1.0),
+                  child: Column(
+                    children: [
+                      for(int i = 0; i < errors.length; i++ )
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: Row(
+                          children: [
+                            Text("${i+1} -",style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                fontSize: 18.0,
+                                color: Color.fromRGBO(78,78,78,1.0),
+                                fontWeight: FontWeight.w700
+                              )
+                            ),),
+                            Flexible(
+                              child: Text(
+                                errors[i],
+                                style: GoogleFonts.montserrat(
+                                  textStyle: const TextStyle(
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromRGBO(78, 78, 78, 1.0),
+                                  ),
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                    ],
+                  )
+
+
                 )
               ],
             ),

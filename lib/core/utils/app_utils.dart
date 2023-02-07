@@ -1,4 +1,5 @@
 import 'package:logger/logger.dart';
+import 'package:tintasepintura/core/values/constants.dart';
 
 mixin AppUtils {
 
@@ -33,10 +34,24 @@ mixin AppUtils {
   }
 
 
-  List<String> validateWallSize(double wallWidth, double wallHeight){
+  List<String> validateWallSize(double wallWidth, double wallHeight, int windowQuantity, int doorQuantity){
     List<String> errors = [];
     final result = (wallWidth * wallHeight);
-    return [];//result > 1.0 && result < 50.0;
+
+    if(result <= 1.0 || result > 50.0){
+      errors.add(AppMessageError.wallSize);
+    }
+
+    if(windowQuantity > 0){
+      final whCentimeter = (wallHeight * 100);
+      if((whCentimeter - 190) < 30){
+        errors.add(AppMessageError.wallSmallerThanTheDoor);
+      }
+    }
+
+
+
+    return errors;
   }
 
 
