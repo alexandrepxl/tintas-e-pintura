@@ -36,7 +36,12 @@ mixin AppUtils {
 
   List<String> validateWallSize(double wallWidth, double wallHeight, int windowQuantity, int doorQuantity){
     List<String> errors = [];
+
+    const double windowsArea = (2.00 * 1.20);
+    const double doorArea = (0.80 * 1.90);
+
     final result = (wallWidth * wallHeight);
+
 
     if(result <= 1.0 || result > 50.0){
       errors.add(AppMessageError.wallSize);
@@ -49,6 +54,14 @@ mixin AppUtils {
       }
     }
 
+
+    if(windowQuantity > 0 || doorQuantity > 0){
+      final areaWall = (wallWidth * wallHeight);
+      final portalAndWindowArea = ((windowsArea * windowQuantity) + (doorArea * doorQuantity));
+      if(portalAndWindowArea > (areaWall / 2)){
+        errors.add(AppMessageError.portalAndWindowsSizeLimit);
+      }
+    }
 
 
     return errors;

@@ -62,6 +62,7 @@ class DialogMessageError extends StatelessWidget {
                                 fontWeight: FontWeight.w700
                               )
                             ),),
+                            const SizedBox(width: 10.0),
                             Flexible(
                               child: Text(
                                 errors[i],
@@ -72,7 +73,7 @@ class DialogMessageError extends StatelessWidget {
                                     color: Color.fromRGBO(78, 78, 78, 1.0),
                                   ),
                                 ),
-                                textAlign: TextAlign.center,
+                                textAlign: TextAlign.start,
                               ),
                             ),
                           ],
