@@ -1,26 +1,22 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tintasepintura/app/data/models/measurement.dart';
 import 'package:tintasepintura/app/ui/home/widgets/dialog_message_error.dart';
 import 'package:tintasepintura/core/utils/app_utils.dart';
-import 'package:tintasepintura/core/values/constants.dart';
+
 
 class HomeViewModel extends GetxController with AppUtils{
 
   List<Measurement> measurementList = [];
-
-  double totalPaintableArea = 0.0;
-  double wallWidth = 0.0;
-  double wallHeight = 0.0;
-  int windowQuantity = 0;
-  int doorQuantity = 0;
+  RxBool showWidgetInputData = false.obs;
 
 
   RxString  wallActive = "".obs;
   selectingWall(String wall){
-    wallActive.value = wall;
+    if(bindingPaints(wall).value.isEmpty) {
+      wallActive.value = wall;
+      showWidgetInputData.value = true;
+    }
   }
 
   cancel(){
@@ -36,11 +32,14 @@ class HomeViewModel extends GetxController with AppUtils{
         showDialogError(errors);
         return;
       }
+      obj.litersOfPaint = calculateLitersOfPaint(obj.wallWidth, obj.wallHeight, obj.windowQuantity, obj.doorQuantity).litersOfPaint;
       measurementList.add(obj);
       for(final item in measurementList){
         print("----------------------------");
-        print( "totalPaintableArea: ${item.totalPaintableArea} \nwall: ${item.wall} \ndoorQuantity: ${item.doorQuantity} \nwallHeight: ${item.wallHeight} \nwallWidth: ${item.wallWidth} \nwindowQuantity: ${item.windowQuantity}");
+        print( "totalPaintableArea: ${item.litersOfPaint} \nwall: ${item.wall} \ndoorQuantity: ${item.doorQuantity} \nwallHeight: ${item.wallHeight} \nwallWidth: ${item.wallWidth} \nwindowQuantity: ${item.windowQuantity}");
       }
+      showWidgetInputData.value = false;
+
     }catch(e){
       loggerError(message: e);
     }finally{
@@ -52,7 +51,7 @@ class HomeViewModel extends GetxController with AppUtils{
 
   RxString bindingPaints(String value){
     final data = measurementList.where((e) => e.wall == value).toList();
-    return data.isNotEmpty ? data.single.windowQuantity.toString().obs : "".obs;
+    return data.isNotEmpty ? "${data.single.litersOfPaint}L".obs : "".obs;
   }
 
 

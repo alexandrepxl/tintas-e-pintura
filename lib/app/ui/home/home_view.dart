@@ -147,7 +147,10 @@ class HomeView extends StatelessWidget {
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
                                                 color:
-                                                    vm.wallActive.value == "l"
+                                                    vm.wallActive.value == "l" || vm
+                                                        .bindingPaints('l')
+                                                        .value
+                                                        .isNotEmpty
                                                         ? const Color.fromRGBO(
                                                             33, 105, 177, 1.0)
                                                         : const Color.fromRGBO(
@@ -156,10 +159,7 @@ class HomeView extends StatelessWidget {
                                           ),
                                         ),
                                         const SizedBox(width: 26.0),
-                                        if (vm
-                                            .bindingPaints('l')
-                                            .value
-                                            .isNotEmpty)
+                                        if (vm.bindingPaints('l').value.isNotEmpty)
                                           Text(
                                             vm.bindingPaints('l').value,
                                             style: GoogleFonts.montserrat(
@@ -195,7 +195,10 @@ class HomeView extends StatelessWidget {
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
                                                 color:
-                                                    vm.wallActive.value == "r"
+                                                    vm.wallActive.value == "r" || vm
+                                                        .bindingPaints('r')
+                                                        .value
+                                                        .isNotEmpty
                                                         ? const Color.fromRGBO(
                                                             33, 105, 177, 1.0)
                                                         : const Color.fromRGBO(
@@ -222,7 +225,10 @@ class HomeView extends StatelessWidget {
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
                                                 color:
-                                                    vm.wallActive.value == "t"
+                                                    vm.wallActive.value == "t" || vm
+                                                        .bindingPaints('t')
+                                                        .value
+                                                        .isNotEmpty
                                                         ? const Color.fromRGBO(
                                                             33, 105, 177, 1.0)
                                                         : const Color.fromRGBO(
@@ -270,7 +276,10 @@ class HomeView extends StatelessWidget {
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
                                                 color:
-                                                    vm.wallActive.value == "b"
+                                                    vm.wallActive.value == "b" || vm
+                                                        .bindingPaints('b')
+                                                        .value
+                                                        .isNotEmpty
                                                         ? const Color.fromRGBO(
                                                             33, 105, 177, 1.0)
                                                         : const Color.fromRGBO(
@@ -288,37 +297,36 @@ class HomeView extends StatelessWidget {
                         : const SizedBox(),
                   ),
                   Obx(
-                    () => vm.wallActive.value.isNotEmpty
-                        ? vm.measurementList.length < 4
-                            ? InputWallSize(
-                                vm.insertValues, vm.wallActive.value)
-                            : Container(
-                                padding: const EdgeInsets.all(20.0),
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromRGBO(139, 139, 139, 0.5),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Alexandre Borges de Melo",
-                                      style: GoogleFonts.montserrat(
-                                        textStyle: const TextStyle(
-                                          fontSize: 13.0,
-                                          color:
-                                              Color.fromRGBO(78, 78, 78, 1.0),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                        : const SizedBox(),
+                    () => vm.showWidgetInputData.value ? InputWallSize(
+                                vm.insertValues, vm.wallActive.value) : const SizedBox(),
                   ),
+
+                  Obx(() => !vm.showWidgetInputData.value ? 
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20.0),
+                    margin: const EdgeInsets.only(left: 30.0, top: 30.0 ,right: 30.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: const Color.fromRGBO(255,255,255,1.0)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Resultado:", style: GoogleFonts.montserrat(
+                          textStyle: const TextStyle(
+                            fontSize: 16.0,
+                            color: Color.fromRGBO(78,78,78,1.0)
+                          )
+                        ),)
+
+                      ],
+                    ),
+                  ) :const  SizedBox(),
+                  )
+
                 ],
               ),
-
             ),
           ),
         );

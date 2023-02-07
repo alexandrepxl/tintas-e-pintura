@@ -37,7 +37,7 @@ class _InputWallSizeState extends State<InputWallSize> {
 
   submit() {
     final obj = Measurement(
-        totalPaintableArea: 0,
+        litersOfPaint: 0,
         wall: widget.wall,
         doorQuantity: doorQuantity,
         wallHeight: wallHeight,

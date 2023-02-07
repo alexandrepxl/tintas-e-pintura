@@ -80,9 +80,7 @@ class DialogMessageError extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )
-
-
+                  ),
                 )
               ],
             ),

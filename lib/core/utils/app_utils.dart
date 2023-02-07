@@ -1,7 +1,13 @@
 import 'package:logger/logger.dart';
+import 'package:tintasepintura/app/data/models/painted_area.dart';
 import 'package:tintasepintura/core/values/constants.dart';
 
 mixin AppUtils {
+
+  final double windowsArea = (2.00 * 1.20);
+  final double doorArea = (0.80 * 1.90);
+
+
 
   final _logger = Logger(
     printer: PrettyPrinter(
@@ -37,11 +43,7 @@ mixin AppUtils {
   List<String> validateWallSize(double wallWidth, double wallHeight, int windowQuantity, int doorQuantity){
     List<String> errors = [];
 
-    const double windowsArea = (2.00 * 1.20);
-    const double doorArea = (0.80 * 1.90);
-
     final result = (wallWidth * wallHeight);
-
 
     if(result <= 1.0 || result > 50.0){
       errors.add(AppMessageError.wallSize);
@@ -54,19 +56,23 @@ mixin AppUtils {
       }
     }
 
-
     if(windowQuantity > 0 || doorQuantity > 0){
-      final areaWall = (wallWidth * wallHeight);
-      final portalAndWindowArea = ((windowsArea * windowQuantity) + (doorArea * doorQuantity));
-      if(portalAndWindowArea > (areaWall / 2)){
+      final obj = calculateLitersOfPaint(wallWidth,wallHeight,windowQuantity,doorQuantity);
+      if(obj.windowsPortal > (obj.wall / 2)){
         errors.add(AppMessageError.portalAndWindowsSizeLimit);
       }
     }
-
-
     return errors;
   }
 
+
+
+  PaintedArea calculateLitersOfPaint(double wallWidth, double wallHeight, int windowQuantity, int doorQuantity){
+    final areaWall = (wallWidth * wallHeight);
+    final portalAndWindowArea = ((windowsArea * windowQuantity) + (doorArea * doorQuantity));
+    final litersOfPaint = double.parse(((areaWall - portalAndWindowArea) / 5).toStringAsFixed(2)) ;
+    return PaintedArea(wall: areaWall, windowsPortal: portalAndWindowArea, litersOfPaint: litersOfPaint);
+  }
 
 
 }
