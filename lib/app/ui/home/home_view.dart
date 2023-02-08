@@ -23,14 +23,18 @@ class HomeView extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text(
-                    "Selecione uma parede e calcule",
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                        color: Color.fromRGBO(78, 78, 78, 1.0),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+                    child: Text(
+                      "Selecione a parece e calcule a área para saber a quantidade de tinta.",
+                      style: GoogleFonts.montserrat(
+                        textStyle: const TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromRGBO(78, 78, 78, 1.0),
+                        ),
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(height: 20.0),
