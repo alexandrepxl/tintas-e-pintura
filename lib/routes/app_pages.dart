@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:tintasepintura/app/ui/home/home_binding.dart';
-import 'package:tintasepintura/app/ui/home/home_view.dart';
 import 'package:tintasepintura/app/ui/initial/initial_binding.dart';
 import 'package:tintasepintura/app/ui/initial/initial_view.dart';
 import 'package:tintasepintura/app/ui/navigation_control/navigation_control_binding.dart';
@@ -21,12 +19,6 @@ class AppPages {
         transition: Transition.cupertino ,
         page: () => const NavigationControlView(),
         binding: NavigationControlBinding()),
-
-    GetPage(
-        name: AppRoutes.home,
-        transition: Transition.cupertino ,
-        page: () => const HomeView(),
-        binding: HomeBinding()),
 
   ];
 }

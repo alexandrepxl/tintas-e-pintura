@@ -1,16 +1,14 @@
-# tintasepintura
+# Tintas & Pintura (DIGITAL REPUBLIC CODE CHALLENGE)
 
-A new Flutter project.
+"Projetinho" desenvolvido com o objetivo de avaliar o conhecimento e capacidade dos candidatos às vagas de programação/desenvolvimento.
 
-## Getting Started
+## Projeto desenvolvido com Flutter (versão 3.7) Dart sdk 2.19.0
 
-This project is a starting point for a Flutter application.
+Seiga as instuções do link abaixo para configuração de ambiente e instalar a applicação.
 
 A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Instalação](https://docs.flutter.dev/get-started/install)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+

@@ -67,7 +67,6 @@ mixin AppUtils {
   }
 
 
-
   PaintedArea calculateLitersOfPaint(double wallWidth, double wallHeight, int windowQuantity, int doorQuantity){
     final areaWall = (wallWidth * wallHeight);
     final portalAndWindowArea = ((windowsArea * windowQuantity) + (doorArea * doorQuantity));

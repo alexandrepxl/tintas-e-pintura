@@ -9,7 +9,7 @@ import 'package:tintasepintura/routes/app_routes.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
 void main() async{
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
   Register.adapter();
