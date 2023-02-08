@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tintasepintura/app/data/models/cans.dart';
 import 'package:tintasepintura/app/data/models/measurement.dart';
 import 'package:tintasepintura/app/ui/home/widgets/dialog_message_error.dart';
 import 'package:tintasepintura/core/utils/app_utils.dart';
@@ -35,17 +36,22 @@ class HomeViewModel extends GetxController with AppUtils{
       }
       obj.litersOfPaint = calculateLitersOfPaint(obj.wallWidth, obj.wallHeight, obj.windowQuantity, obj.doorQuantity).litersOfPaint;
       measurementList.add(obj);
-      for(final item in measurementList){
-        print("----------------------------");
-        print( "totalPaintableArea: ${item.litersOfPaint} \nwall: ${item.wall} \ndoorQuantity: ${item.doorQuantity} \nwallHeight: ${item.wallHeight} \nwallWidth: ${item.wallWidth} \nwindowQuantity: ${item.windowQuantity}");
-      }
       showWidgetInputData.value = false;
-
+      if(measurementList.length == 4){
+        showPaintCans();
+      }
     }catch(e){
       loggerError(message: e);
     }finally{
       showPreviewInto.value = true;
     }
+  }
+
+  late Cans cans;
+  showPaintCans(){
+    double litersOfPaint = 0.0;
+    measurementList.forEach((e) {litersOfPaint += e.litersOfPaint;});
+    cans = paintCans(litersOfPaint);
   }
 
 

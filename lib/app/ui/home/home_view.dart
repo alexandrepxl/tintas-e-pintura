@@ -327,116 +327,112 @@ class HomeView extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(16.0),
                                 color: const Color.fromRGBO(255, 255, 255, 1.0),
                                 boxShadow: AppTheme.shadow()),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text(
-                                  "Resultado:",
-                                  style: GoogleFonts.montserrat(
-                                    textStyle: const TextStyle(
-                                        fontSize: 18.0,
-                                        color: Color.fromRGBO(78, 78, 78, 1.0)),
-                                  ),
-                                ),
-                                const SizedBox(height: 5.0),
-                                RichText(
-                                  text: TextSpan(
-                                    text: 'Portas: ',
-                                    style: GoogleFonts.montserrat(
-                                      textStyle: const TextStyle(
+                                Column(
+                                  children: [
+                                    Text(
+                                      "18 litros",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
                                           fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
                                           color:
-                                              Color.fromRGBO(78, 78, 78, 1.0),
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: ' 5',
-                                        style: GoogleFonts.montserrat(
-                                          textStyle: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 13.0,
-                                              color: Color.fromRGBO(
-                                                  78, 78, 78, 1.0)),
+                                              Color.fromRGBO(42, 83, 209, 1.0),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: 5.0),
-                                RichText(
-                                  text: TextSpan(
-                                    text: 'Janelas: ',
-                                    style: GoogleFonts.montserrat(
-                                      textStyle: const TextStyle(
-                                          fontSize: 14.0,
+                                    ),
+                                    Text(
+                                      "${vm.cans.l18}",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w600,
                                           color:
                                               Color.fromRGBO(78, 78, 78, 1.0),
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: ' 5',
-                                        style: GoogleFonts.montserrat(
-                                          textStyle: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 13.0,
-                                              color: Color.fromRGBO(
-                                                  78, 78, 78, 1.0)),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                const SizedBox(height: 5.0),
-                                RichText(
-                                  text: TextSpan(
-                                    text: 'Área: ',
-                                    style: GoogleFonts.montserrat(
-                                      textStyle: const TextStyle(
+                                Column(
+                                  children: [
+                                    Text(
+                                      "3,6 litros",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
                                           fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                          color:
+                                              Color.fromRGBO(42, 83, 209, 1.0),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      "${vm.cans.l36}",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w600,
                                           color:
                                               Color.fromRGBO(78, 78, 78, 1.0),
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: ' 5',
-                                        style: GoogleFonts.montserrat(
-                                          textStyle: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 13.0,
-                                              color: Color.fromRGBO(
-                                                  78, 78, 78, 1.0)),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                const SizedBox(height: 5.0),
-                                RichText(
-                                  text: TextSpan(
-                                    text: 'Litros de tinta: ',
-                                    style: GoogleFonts.montserrat(
-                                      textStyle: const TextStyle(
+                                Column(
+                                  children: [
+                                    Text(
+                                      "2,5 litros",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
                                           fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                          color:
+                                              Color.fromRGBO(42, 83, 209, 1.0),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      "${vm.cans.l25}",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w600,
                                           color:
                                               Color.fromRGBO(78, 78, 78, 1.0),
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: ' 5',
-                                        style: GoogleFonts.montserrat(
-                                          textStyle: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 13.0,
-                                              color: Color.fromRGBO(
-                                                  78, 78, 78, 1.0)),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "0,5 litros",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                          color:
+                                              Color.fromRGBO(42, 83, 209, 1.0),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      "${vm.cans.l05}",
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: const TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w600,
+                                          color:
+                                              Color.fromRGBO(78, 78, 78, 1.0),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 )
                               ],
                             ),

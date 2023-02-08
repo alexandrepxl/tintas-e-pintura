@@ -1,4 +1,5 @@
 import 'package:logger/logger.dart';
+import 'package:tintasepintura/app/data/models/cans.dart';
 import 'package:tintasepintura/app/data/models/painted_area.dart';
 import 'package:tintasepintura/core/values/constants.dart';
 
@@ -72,6 +73,31 @@ mixin AppUtils {
     final portalAndWindowArea = ((windowsArea * windowQuantity) + (doorArea * doorQuantity));
     final litersOfPaint = double.parse(((areaWall - portalAndWindowArea) / 5).toStringAsFixed(2)) ;
     return PaintedArea(wall: areaWall, windowsPortal: portalAndWindowArea, litersOfPaint: litersOfPaint);
+  }
+
+
+
+  Cans paintCans(double litersOfPaint){
+     final cans = Cans(l18: 0, l36: 0, l25: 0, l05: 0);
+
+    while(litersOfPaint > 0){
+      if(litersOfPaint - 18 >= 0){
+        litersOfPaint -= 18;
+        cans.l18 ++;
+      } else if(litersOfPaint - 3.6 >= 0){
+        litersOfPaint -= 3.6;
+        cans.l36 ++;
+      } else if(litersOfPaint - 2.5 >= 0){
+        litersOfPaint -= 2.5;
+        cans.l25 ++;
+      } else if(litersOfPaint - 0.5 >= 0){
+        litersOfPaint -= 0.5;
+        cans.l05 ++;
+      }else{
+        litersOfPaint --;
+      }
+    }
+    return cans;
   }
 
 
