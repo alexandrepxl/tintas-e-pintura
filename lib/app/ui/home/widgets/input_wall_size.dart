@@ -6,8 +6,9 @@ import 'package:tintasepintura/app/ui/home/widgets/data_input_integer.dart';
 
 class InputWallSize extends StatefulWidget {
   Function(Measurement measurement) func;
+  Function() funcCancel;
   String wall;
-  InputWallSize(this.func, this.wall, {Key? key}) : super(key: key);
+  InputWallSize(this.func,this.funcCancel, this.wall, {Key? key}) : super(key: key);
 
   @override
   State<InputWallSize> createState() => _InputWallSizeState();
@@ -46,6 +47,8 @@ class _InputWallSizeState extends State<InputWallSize> {
 
     widget.func(obj);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -169,7 +172,9 @@ class _InputWallSizeState extends State<InputWallSize> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  widget.funcCancel();
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(229,229,229, 1.0),
                 ),

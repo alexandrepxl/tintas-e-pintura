@@ -21,6 +21,7 @@ class HomeViewModel extends GetxController with AppUtils{
 
   cancel(){
     wallActive.value = "";
+    showWidgetInputData.value = false;
   }
 
   RxBool showPreviewInto = true.obs;

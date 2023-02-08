@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tintasepintura/app/ui/home/home_view_model.dart';
 import 'package:tintasepintura/app/ui/home/widgets/input_wall_size.dart';
+import 'package:tintasepintura/core/theme/app_theme.dart';
 import 'package:tintasepintura/core/values/constants.dart';
 
 class HomeView extends StatelessWidget {
@@ -54,10 +55,11 @@ class HomeView extends StatelessWidget {
                                           AppImages.wallLeft,
                                           height: 200.0,
                                           opacity: AlwaysStoppedAnimation(
-                                              vm.wallActive.value == "l" || vm
-                                                  .bindingPaints('l')
-                                                  .value
-                                                  .isNotEmpty
+                                              vm.wallActive.value == "l" ||
+                                                      vm
+                                                          .bindingPaints('l')
+                                                          .value
+                                                          .isNotEmpty
                                                   ? 1.0
                                                   : 0.3),
                                         ),
@@ -74,10 +76,11 @@ class HomeView extends StatelessWidget {
                                           AppImages.wallRight,
                                           height: 200.0,
                                           opacity: AlwaysStoppedAnimation(
-                                              vm.wallActive.value == "r" || vm
-                                                  .bindingPaints('r')
-                                                  .value
-                                                  .isNotEmpty
+                                              vm.wallActive.value == "r" ||
+                                                      vm
+                                                          .bindingPaints('r')
+                                                          .value
+                                                          .isNotEmpty
                                                   ? 1.0
                                                   : 0.3),
                                         ),
@@ -103,10 +106,14 @@ class HomeView extends StatelessWidget {
                                         child: Image.asset(
                                           AppImages.wallTop,
                                           width: 250.0,
-                                          opacity: AlwaysStoppedAnimation(vm.wallActive.value == "t" || vm
-                                              .bindingPaints('t')
-                                              .value
-                                              .isNotEmpty ? 1.0 : 0.3),
+                                          opacity: AlwaysStoppedAnimation(
+                                              vm.wallActive.value == "t" ||
+                                                      vm
+                                                          .bindingPaints('t')
+                                                          .value
+                                                          .isNotEmpty
+                                                  ? 1.0
+                                                  : 0.3),
                                         ),
                                       ),
                                     ),
@@ -121,10 +128,11 @@ class HomeView extends StatelessWidget {
                                           AppImages.wallBottom,
                                           width: 250.0,
                                           opacity: AlwaysStoppedAnimation(
-                                              vm.wallActive.value == "b" || vm
-                                                  .bindingPaints('b')
-                                                  .value
-                                                  .isNotEmpty
+                                              vm.wallActive.value == "b" ||
+                                                      vm
+                                                          .bindingPaints('b')
+                                                          .value
+                                                          .isNotEmpty
                                                   ? 1.0
                                                   : 0.3),
                                         ),
@@ -146,25 +154,29 @@ class HomeView extends StatelessWidget {
                                           style: GoogleFonts.montserrat(
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
-                                                color:
-                                                    vm.wallActive.value == "l" || vm
-                                                        .bindingPaints('l')
-                                                        .value
-                                                        .isNotEmpty
-                                                        ? const Color.fromRGBO(
-                                                            33, 105, 177, 1.0)
-                                                        : const Color.fromRGBO(
-                                                            33, 105, 177, 0.4),
+                                                color: vm.wallActive.value ==
+                                                            "l" ||
+                                                        vm
+                                                            .bindingPaints('l')
+                                                            .value
+                                                            .isNotEmpty
+                                                    ? const Color.fromRGBO(
+                                                        33, 105, 177, 1.0)
+                                                    : const Color.fromRGBO(
+                                                        33, 105, 177, 0.4),
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ),
                                         const SizedBox(width: 26.0),
-                                        if (vm.bindingPaints('l').value.isNotEmpty)
+                                        if (vm
+                                            .bindingPaints('l')
+                                            .value
+                                            .isNotEmpty)
                                           Text(
                                             vm.bindingPaints('l').value,
                                             style: GoogleFonts.montserrat(
                                               textStyle: const TextStyle(
-                                                  fontSize: 18.0,
+                                                  fontSize: 16.0,
                                                   color: Color.fromRGBO(
                                                       78, 78, 78, 1.0),
                                                   fontWeight: FontWeight.w500),
@@ -182,7 +194,7 @@ class HomeView extends StatelessWidget {
                                             vm.bindingPaints('r').value,
                                             style: GoogleFonts.montserrat(
                                               textStyle: const TextStyle(
-                                                  fontSize: 18.0,
+                                                  fontSize: 16.0,
                                                   color: Color.fromRGBO(
                                                       78, 78, 78, 1.0),
                                                   fontWeight: FontWeight.w500),
@@ -194,15 +206,16 @@ class HomeView extends StatelessWidget {
                                           style: GoogleFonts.montserrat(
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
-                                                color:
-                                                    vm.wallActive.value == "r" || vm
-                                                        .bindingPaints('r')
-                                                        .value
-                                                        .isNotEmpty
-                                                        ? const Color.fromRGBO(
-                                                            33, 105, 177, 1.0)
-                                                        : const Color.fromRGBO(
-                                                            33, 105, 177, 0.4),
+                                                color: vm.wallActive.value ==
+                                                            "r" ||
+                                                        vm
+                                                            .bindingPaints('r')
+                                                            .value
+                                                            .isNotEmpty
+                                                    ? const Color.fromRGBO(
+                                                        33, 105, 177, 1.0)
+                                                    : const Color.fromRGBO(
+                                                        33, 105, 177, 0.4),
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ),
@@ -224,15 +237,16 @@ class HomeView extends StatelessWidget {
                                           style: GoogleFonts.montserrat(
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
-                                                color:
-                                                    vm.wallActive.value == "t" || vm
-                                                        .bindingPaints('t')
-                                                        .value
-                                                        .isNotEmpty
-                                                        ? const Color.fromRGBO(
-                                                            33, 105, 177, 1.0)
-                                                        : const Color.fromRGBO(
-                                                            33, 105, 177, 0.4),
+                                                color: vm.wallActive.value ==
+                                                            "t" ||
+                                                        vm
+                                                            .bindingPaints('t')
+                                                            .value
+                                                            .isNotEmpty
+                                                    ? const Color.fromRGBO(
+                                                        33, 105, 177, 1.0)
+                                                    : const Color.fromRGBO(
+                                                        33, 105, 177, 0.4),
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ),
@@ -245,7 +259,7 @@ class HomeView extends StatelessWidget {
                                             vm.bindingPaints('t').value,
                                             style: GoogleFonts.montserrat(
                                               textStyle: const TextStyle(
-                                                  fontSize: 18.0,
+                                                  fontSize: 16.0,
                                                   color: Color.fromRGBO(
                                                       78, 78, 78, 1.0),
                                                   fontWeight: FontWeight.w500),
@@ -263,7 +277,7 @@ class HomeView extends StatelessWidget {
                                             vm.bindingPaints('b').value,
                                             style: GoogleFonts.montserrat(
                                               textStyle: const TextStyle(
-                                                  fontSize: 18.0,
+                                                  fontSize: 16.0,
                                                   color: Color.fromRGBO(
                                                       78, 78, 78, 1.0),
                                                   fontWeight: FontWeight.w500),
@@ -275,15 +289,16 @@ class HomeView extends StatelessWidget {
                                           style: GoogleFonts.montserrat(
                                             textStyle: TextStyle(
                                                 fontSize: 18.0,
-                                                color:
-                                                    vm.wallActive.value == "b" || vm
-                                                        .bindingPaints('b')
-                                                        .value
-                                                        .isNotEmpty
-                                                        ? const Color.fromRGBO(
-                                                            33, 105, 177, 1.0)
-                                                        : const Color.fromRGBO(
-                                                            33, 105, 177, 0.4),
+                                                color: vm.wallActive.value ==
+                                                            "b" ||
+                                                        vm
+                                                            .bindingPaints('b')
+                                                            .value
+                                                            .isNotEmpty
+                                                    ? const Color.fromRGBO(
+                                                        33, 105, 177, 1.0)
+                                                    : const Color.fromRGBO(
+                                                        33, 105, 177, 0.4),
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ),
@@ -296,35 +311,138 @@ class HomeView extends StatelessWidget {
                           )
                         : const SizedBox(),
                   ),
+                  Obx(() => vm.showWidgetInputData.value
+                      ? InputWallSize(
+                          vm.insertValues, vm.cancel, vm.wallActive.value)
+                      : const SizedBox()),
                   Obx(
-                    () => vm.showWidgetInputData.value ? InputWallSize(
-                                vm.insertValues, vm.wallActive.value) : const SizedBox(),
-                  ),
-
-                  Obx(() => !vm.showWidgetInputData.value ? 
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(20.0),
-                    margin: const EdgeInsets.only(left: 30.0, top: 30.0 ,right: 30.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: const Color.fromRGBO(255,255,255,1.0)
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Resultado:", style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                            fontSize: 16.0,
-                            color: Color.fromRGBO(78,78,78,1.0)
+                    () => !vm.showWidgetInputData.value &&
+                            vm.measurementList.length == 4
+                        ? Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(20.0),
+                            margin: const EdgeInsets.only(
+                                left: 30.0, top: 30.0, right: 30.0),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16.0),
+                                color: const Color.fromRGBO(255, 255, 255, 1.0),
+                                boxShadow: AppTheme.shadow()),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Resultado:",
+                                  style: GoogleFonts.montserrat(
+                                    textStyle: const TextStyle(
+                                        fontSize: 18.0,
+                                        color: Color.fromRGBO(78, 78, 78, 1.0)),
+                                  ),
+                                ),
+                                const SizedBox(height: 5.0),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Portas: ',
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: const TextStyle(
+                                          fontSize: 14.0,
+                                          color:
+                                              Color.fromRGBO(78, 78, 78, 1.0),
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: ' 5',
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 13.0,
+                                              color: Color.fromRGBO(
+                                                  78, 78, 78, 1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 5.0),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Janelas: ',
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: const TextStyle(
+                                          fontSize: 14.0,
+                                          color:
+                                              Color.fromRGBO(78, 78, 78, 1.0),
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: ' 5',
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 13.0,
+                                              color: Color.fromRGBO(
+                                                  78, 78, 78, 1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 5.0),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Área: ',
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: const TextStyle(
+                                          fontSize: 14.0,
+                                          color:
+                                              Color.fromRGBO(78, 78, 78, 1.0),
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: ' 5',
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 13.0,
+                                              color: Color.fromRGBO(
+                                                  78, 78, 78, 1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 5.0),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Litros de tinta: ',
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: const TextStyle(
+                                          fontSize: 14.0,
+                                          color:
+                                              Color.fromRGBO(78, 78, 78, 1.0),
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: ' 5',
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 13.0,
+                                              color: Color.fromRGBO(
+                                                  78, 78, 78, 1.0)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           )
-                        ),)
-
-                      ],
-                    ),
-                  ) :const  SizedBox(),
+                        : const SizedBox(),
                   )
-
                 ],
               ),
             ),
