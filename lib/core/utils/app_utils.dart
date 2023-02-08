@@ -78,8 +78,7 @@ mixin AppUtils {
 
 
   Cans paintCans(double litersOfPaint){
-     final cans = Cans(l18: 0, l36: 0, l25: 0, l05: 0);
-
+    final cans = Cans(l18: 0, l36: 0, l25: 0, l05: 0);
     while(litersOfPaint > 0){
       if(litersOfPaint - 18 >= 0){
         litersOfPaint -= 18;

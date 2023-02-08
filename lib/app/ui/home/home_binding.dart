@@ -7,7 +7,6 @@ class HomeBinding extends Bindings{
   @override
   void dependencies() {
     Get.lazyPut(() => HomeViewModel());
-    Get.lazyPut(() => HomeRepository());
   }
 
 }
