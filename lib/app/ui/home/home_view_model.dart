@@ -84,6 +84,7 @@ class HomeViewModel extends GetxController with AppUtils{
   saveHistory() async{
     try{
       List<HiveHistory> items = [];
+      final dateTime =  DateTime.now();
       try{
          final data = await repository.getHistories();
          items = data.items;
@@ -91,12 +92,13 @@ class HomeViewModel extends GetxController with AppUtils{
         loggerError(message: e);
       }
       items.add(HiveHistory(
-          l05: cans.l25,
+          l05: cans.l05,
           l25: cans.l25,
           l36: cans.l36,
           l18: cans.l18,
           litersOfPaint: litersOfPaint,
           totalArea: totalArea,
+          createdAt: dateTime.toString()
          ));
 
      await repository.saveHistory(items);

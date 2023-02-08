@@ -44,11 +44,8 @@ class _InputWallSizeState extends State<InputWallSize> {
         wallHeight: wallHeight,
         wallWidth: wallWidth,
         windowQuantity: windowQuantity);
-
     widget.func(obj);
   }
-
-
 
   @override
   Widget build(BuildContext context) {

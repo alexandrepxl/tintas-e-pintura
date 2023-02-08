@@ -23,13 +23,14 @@ class HiveHistoryAdapter extends TypeAdapter<HiveHistory> {
       l18: fields[0] == null ? 0 : fields[0] as int,
       litersOfPaint: fields[4] == null ? 0.0 : fields[4] as double,
       totalArea: fields[5] == null ? 0.0 : fields[5] as double,
+      createdAt: fields[6] == null ? '' : fields[6] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, HiveHistory obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.l18)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class HiveHistoryAdapter extends TypeAdapter<HiveHistory> {
       ..writeByte(4)
       ..write(obj.litersOfPaint)
       ..writeByte(5)
-      ..write(obj.totalArea);
+      ..write(obj.totalArea)
+      ..writeByte(6)
+      ..write(obj.createdAt);
   }
 
   @override

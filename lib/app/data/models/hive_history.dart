@@ -16,6 +16,8 @@ class HiveHistory extends HiveObject {
   double litersOfPaint;
   @HiveField(5, defaultValue: 0.0)
   double totalArea;
+  @HiveField(6, defaultValue: "")
+  String createdAt;
 
   HiveHistory({
     required this.l05,
@@ -23,6 +25,7 @@ class HiveHistory extends HiveObject {
     required this.l36,
     required this.l18,
     required this.litersOfPaint,
-    required this.totalArea
+    required this.totalArea,
+    required this.createdAt
   });
 }

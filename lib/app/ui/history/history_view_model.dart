@@ -15,6 +15,8 @@ class HistoryViewModel extends GetxController with AppUtils{
      isLoad.value = false;
      final data = await repository.getHistories();
      if(data.items.isNotEmpty) histories = data.items;
+     histories.sort((a, b) => b.createdAt.compareTo(a.createdAt)
+     );
     }catch(e){
       loggerError(message: e);
     }finally{

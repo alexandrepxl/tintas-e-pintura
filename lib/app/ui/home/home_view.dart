@@ -37,15 +37,16 @@ class HomeView extends StatelessWidget {
                   Obx(
                     () => vm.showPreviewInto.value
                         ? Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                          margin: const EdgeInsets.only(left: 30.0, right: 30.0),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(18.0),
-                            boxShadow: AppTheme.shadow()
-                          ),
-                          child: Stack(
+                            width: double.infinity,
+                            padding:
+                                const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                            margin:
+                                const EdgeInsets.only(left: 30.0, right: 30.0),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18.0),
+                                boxShadow: AppTheme.shadow()),
+                            child: Stack(
                               alignment: Alignment.center,
                               children: [
                                 SizedBox(
@@ -167,7 +168,8 @@ class HomeView extends StatelessWidget {
                                                   color: vm.wallActive.value ==
                                                               "l" ||
                                                           vm
-                                                              .bindingPaints('l')
+                                                              .bindingPaints(
+                                                                  'l')
                                                               .value
                                                               .isNotEmpty
                                                       ? const Color.fromRGBO(
@@ -189,7 +191,8 @@ class HomeView extends StatelessWidget {
                                                     fontSize: 16.0,
                                                     color: Color.fromRGBO(
                                                         78, 78, 78, 1.0),
-                                                    fontWeight: FontWeight.w500),
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
                                             ),
                                         ],
@@ -207,7 +210,8 @@ class HomeView extends StatelessWidget {
                                                     fontSize: 16.0,
                                                     color: Color.fromRGBO(
                                                         78, 78, 78, 1.0),
-                                                    fontWeight: FontWeight.w500),
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
                                             ),
                                           const SizedBox(width: 26.0),
@@ -219,7 +223,8 @@ class HomeView extends StatelessWidget {
                                                   color: vm.wallActive.value ==
                                                               "r" ||
                                                           vm
-                                                              .bindingPaints('r')
+                                                              .bindingPaints(
+                                                                  'r')
                                                               .value
                                                               .isNotEmpty
                                                       ? const Color.fromRGBO(
@@ -250,7 +255,8 @@ class HomeView extends StatelessWidget {
                                                   color: vm.wallActive.value ==
                                                               "t" ||
                                                           vm
-                                                              .bindingPaints('t')
+                                                              .bindingPaints(
+                                                                  't')
                                                               .value
                                                               .isNotEmpty
                                                       ? const Color.fromRGBO(
@@ -272,7 +278,8 @@ class HomeView extends StatelessWidget {
                                                     fontSize: 16.0,
                                                     color: Color.fromRGBO(
                                                         78, 78, 78, 1.0),
-                                                    fontWeight: FontWeight.w500),
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
                                             ),
                                         ],
@@ -290,7 +297,8 @@ class HomeView extends StatelessWidget {
                                                     fontSize: 16.0,
                                                     color: Color.fromRGBO(
                                                         78, 78, 78, 1.0),
-                                                    fontWeight: FontWeight.w500),
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
                                             ),
                                           const SizedBox(height: 20.0),
@@ -302,7 +310,8 @@ class HomeView extends StatelessWidget {
                                                   color: vm.wallActive.value ==
                                                               "b" ||
                                                           vm
-                                                              .bindingPaints('b')
+                                                              .bindingPaints(
+                                                                  'b')
                                                               .value
                                                               .isNotEmpty
                                                       ? const Color.fromRGBO(
@@ -319,13 +328,15 @@ class HomeView extends StatelessWidget {
                                 ),
                               ],
                             ),
-                        )
+                          )
                         : const SizedBox(),
                   ),
-                  Obx(() => vm.showWidgetInputData.value
-                      ? InputWallSize(
-                          vm.insertValues, vm.cancel, vm.wallActive.value)
-                      : const SizedBox()),
+                  Obx(
+                    () => vm.showWidgetInputData.value
+                        ? InputWallSize(
+                            vm.insertValues, vm.cancel, vm.wallActive.value)
+                        : const SizedBox(),
+                  ),
                   Obx(
                     () => !vm.showWidgetInputData.value &&
                             vm.measurementList.length == 4
